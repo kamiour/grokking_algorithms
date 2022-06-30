@@ -6,18 +6,20 @@ function findNumInArray(arr, num) {
 
   while (high - low >= 0) {
     numberOfIterations++;
-    let guess = arr[Math.floor((low + high) / 2)];
+
+    let mid = Math.floor((low + high) / 2);
+    let guess = arr[mid];
 
     if (guess === num) {
       return `Value: ${guess}. Number of iterations: ${numberOfIterations}`;
     }
 
     if (guess < num) {
-      low = guess + 1;
+      low = mid + 1;
     }
 
     if (guess > num) {
-      high = guess - 1;
+      high = mid - 1;
     }
   }
 
@@ -25,3 +27,4 @@ function findNumInArray(arr, num) {
 }
 
 findNumInArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 3);
+findNumInArray([0, 3, 4, 8, 11], 5);
